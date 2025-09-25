@@ -136,7 +136,7 @@ function undoTaskFormCompleted(todoId) {
 function removeTaskFormCompleted(todoId) {
   const todoTarget = findTodoIndex(todoId);
 
-  if (todoTarget == -1) return;
+  if (todoTarget === -1) return;
 
   todos.splice(todoTarget, 1);
   document.dispatchEvent(new Event(RENDER_EVENT));
