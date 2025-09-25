@@ -109,7 +109,7 @@ function makeTodo(todoObject) {
 function addTaskToCompleted(todoId) {
   const todoTarget = findTodo(todoId);
 
-  if (todoTarget.id == null) return;
+  if (todoTarget == null) return;
 
   todoTarget.isCompleted = true;
   document.dispatchEvent(new Event(RENDER_EVENT));
@@ -127,7 +127,7 @@ function findTodo(todoId) {
 function undoTaskFormCompleted(todoId) {
   const todoTarget = findTodo(todoId);
 
-  if (todoTarget.id == null) return;
+  if (todoTarget == null) return;
 
   todoTarget.isCompleted = false;
   document.dispatchEvent(new Event(RENDER_EVENT));
@@ -136,7 +136,7 @@ function undoTaskFormCompleted(todoId) {
 function removeTaskFormCompleted(todoId) {
   const todoTarget = findTodoIndex(todoId);
 
-  if (todoTarget.id == -1) return;
+  if (todoTarget == -1) return;
 
   todos.splice(todoTarget, 1);
   document.dispatchEvent(new Event(RENDER_EVENT));
@@ -144,7 +144,7 @@ function removeTaskFormCompleted(todoId) {
 
 function findTodoIndex(todoId) {
   for (const index in todos) {
-    if (index.id === todoId) {
+    if (todos[index].id === todoId) {
       return index;
     }
   }
